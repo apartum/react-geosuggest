@@ -1,5 +1,5 @@
 {
-  "name": "react-geosuggest",
+  "name": "@apartum/react-geosuggest",
   "version": "2.10.0",
   "description": "A React autosuggest for the Google Maps Places API.",
   "main": "module/Geosuggest.umd.js",
