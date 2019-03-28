@@ -25,7 +25,7 @@ export default interface IProps {
   readonly queryDelay?: number;
   readonly googleMaps?: any;
   readonly highlightMatch?: boolean;
-  readonly onSuggestSelect?: (suggest?: ILocation) => void;
+  readonly onSuggestSelect?: (suggest?: any) => void;
   readonly onFocus?: () => void;
   readonly onBlur?: (userInput?: string) => void;
   readonly onChange?: (value: string) => void;

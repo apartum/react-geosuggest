@@ -17,7 +17,7 @@ interface IProps {
   readonly isHighlightMatch: boolean;
   readonly onSuggestNoResults: () => void;
   readonly renderSuggestItem?: (suggest: ISuggest, userInput: string) => JSX.Element | string;
-  readonly onSuggestSelect: (suggest: ISuggest) => void;
+  readonly onSuggestSelect: (suggest: any) => void;
   readonly onSuggestMouseDown: (event: React.MouseEvent) => void;
   readonly onSuggestMouseOut: (event: React.MouseEvent) => void;
 }
