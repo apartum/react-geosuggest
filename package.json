@@ -1,6 +1,6 @@
 {
   "name": "@apartum/react-geosuggest",
-  "version": "2.10.0",
+  "version": "2.10.1",
   "description": "A React autosuggest for the Google Maps Places API.",
   "main": "module/Geosuggest.umd.js",
   "module": "module/Geosuggest.esm.js",
@@ -82,7 +82,7 @@
     "release:patch": "npm version patch -m \"chore(release): version %s\"",
     "release:minor": "npm version minor -m \"chore(release): version %s\"",
     "release:major": "npm version major -m \"chore(release): version %s\"",
-    "changelog": "conventional-changelog-generator && atom -w CHANGELOG.md",
+    "changelog": "conventional-changelog-generator && vscode -w CHANGELOG.md",
     "preversion": "npm test",
     "version": "npm run build:browser && npm run changelog && git add .",
     "postversion": "git push && git push --tags && npm run publish:example",
