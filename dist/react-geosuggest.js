@@ -1249,15 +1249,9 @@ var Geosuggest = (function (React) {
                 }
                 this.placesService.getDetails(options, function (results, status) {
                     if (status === _this.googleMaps.places.PlacesServiceStatus.OK) {
-                        var gmaps = results;
-                        var location_1 = gmaps.geometry.location;
-                        var suggest = __assign({}, suggestToGeocode, { gmaps: gmaps, location: {
-                                lat: location_1.lat(),
-                                lng: location_1.lng()
-                            } });
                         _this.sessionToken = new google.maps.places.AutocompleteSessionToken();
                         if (_this.props.onSuggestSelect) {
-                            _this.props.onSuggestSelect(suggest);
+                            _this.props.onSuggestSelect(__assign({}, suggestToGeocode, results));
                         }
                     }
                 });
@@ -1273,14 +1267,8 @@ var Geosuggest = (function (React) {
                 };
                 this.geocoder.geocode(options, function (results, status) {
                     if (status === _this.googleMaps.GeocoderStatus.OK) {
-                        var gmaps = results[0];
-                        var location_2 = gmaps.geometry.location;
-                        var suggest = __assign({}, suggestToGeocode, { gmaps: gmaps, location: {
-                                lat: location_2.lat(),
-                                lng: location_2.lng()
-                            } });
                         if (_this.props.onSuggestSelect) {
-                            _this.props.onSuggestSelect(suggest);
+                            _this.props.onSuggestSelect(__assign({}, suggestToGeocode, results[0]));
                         }
                     }
                 });
