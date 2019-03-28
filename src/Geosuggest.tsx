@@ -498,16 +498,9 @@ export default class extends React.Component<IProps, IState> {
 
       this.placesService.getDetails(options, (results, status) => {
         if (status === this.googleMaps.places.PlacesServiceStatus.OK) {
-          const gmaps = results;
-          const location = gmaps.geometry.location;
-          const suggest = {...suggestToGeocode, gmaps, location: {
-            lat: location.lat(),
-            lng: location.lng()
-          }};
-
           this.sessionToken = new google.maps.places.AutocompleteSessionToken();
           if (this.props.onSuggestSelect) {
-            this.props.onSuggestSelect(suggest);
+            this.props.onSuggestSelect({ ...suggestToGeocode, ...results });
           }
         }
       });
@@ -523,15 +516,8 @@ export default class extends React.Component<IProps, IState> {
 
       this.geocoder.geocode(options, (results, status) => {
         if (status === this.googleMaps.GeocoderStatus.OK) {
-          const gmaps = results[0];
-          const location = gmaps.geometry.location;
-          const suggest = {...suggestToGeocode, gmaps, location: {
-            lat: location.lat(),
-            lng: location.lng()
-          }};
-
           if (this.props.onSuggestSelect) {
-            this.props.onSuggestSelect(suggest);
+            this.props.onSuggestSelect({ ...suggestToGeocode, ...results[0] });
           }
         }
       });
